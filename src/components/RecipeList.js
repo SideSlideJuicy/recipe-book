@@ -8,11 +8,11 @@ const RecipeList = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('/api/recipes'); // Assumes your React app is served from the same host
+        const response = await fetch('/api/recipes');
 
         if (response.ok) {
           const data = await response.json();
-          console.log('API Response:', data); // Log the response data
+          console.log('API Response:', data);
           setRecipes(data);
         } else {
           console.error('Failed to fetch recipes');
@@ -34,7 +34,7 @@ const RecipeList = () => {
             {/* Pass individual recipe to the state */}
             <Link to={`/recipe/${recipe._id}`} state={recipe}>
             <div className="image-container">
-                <img src={recipe.imageUrl} alt={recipe.title} />
+                <img src={`http://localhost:3001/uploads/${recipe.imageUrl}`} alt={recipe.title} />
             </div>
             <div className="recipe-details">
                 <h3>{recipe.title}</h3>

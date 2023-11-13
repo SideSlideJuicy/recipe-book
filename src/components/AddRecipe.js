@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddRecipe.css'; // Import styles
+import './AddRecipe.css';
 
 const AddRecipe = ({ onCancel, onAdd }) => {
     const [title, setTitle] = useState('');
@@ -11,7 +11,7 @@ const AddRecipe = ({ onCancel, onAdd }) => {
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
-        console.log('Selected file:', file); // Log the selected file to check if it's being captured
+        console.log('Selected file:', file);
 
         setImage(file);
     };
@@ -33,7 +33,7 @@ const AddRecipe = ({ onCancel, onAdd }) => {
         };
     
         try {
-            // Handle image upload first
+            // Handle image upload
             const formData = new FormData();
             formData.append('image', image);
     
@@ -65,7 +65,6 @@ const AddRecipe = ({ onCancel, onAdd }) => {
     
             if (responseMain.ok) {
                 console.log('Recipe added successfully');
-                // Optionally, update the state with the new recipe
                 onAdd(newRecipe);
             } else {
                 console.error('Failed to add main data:', responseMain.status, responseMain.statusText);

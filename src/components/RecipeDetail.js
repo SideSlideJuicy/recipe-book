@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import './RecipeDetail.css'; // Import styles
+import './RecipeDetail.css';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -17,7 +17,7 @@ const RecipeDetail = () => {
   return (
     <div className="recipe-detail-container">
       <h2 className="recipe-title">{recipe.title}</h2>
-      <img src={recipe.imageUrl} alt={recipe.title} className="recipe-image" />
+      <img src={`http://localhost:3001/uploads/${recipe.imageUrl}`} alt={recipe.title} className="recipe-image" />
       <div className="recipe-section">
         <h3>Ingredients</h3>
         <p className="recipe-content">{recipe.ingredients}</p>
@@ -26,7 +26,6 @@ const RecipeDetail = () => {
         <h3>Instructions</h3>
         <p className="recipe-content">{recipe.instructions}</p>
       </div>
-      {/* You can add more sections for additional details */}
       <Link to="/" className="back-link">Back to Recipe List</Link>
     </div>
   );
