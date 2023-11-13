@@ -1,0 +1,57 @@
+/* Apply these styles to your RecipeList.css file */
+
+.recipe-list {
+  width: 80%;
+  max-width: 1200px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.recipe-list h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.recipe-list ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.recipe-list li {
+  margin-bottom: 20px;
+  width: calc(30% - 20px); /* Adjust the width as needed */
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+}
+
+.recipe-list li:hover {
+  transform: scale(1.05);
+}
+
+.recipe-list li img {
+  width: 100%;
+  height: 200px; /* Adjust the height as needed */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  border-radius: 8px;
+}
+
+.recipe-list li .recipe-details {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0 0 8px 8px;
+}
+
+.recipe-list li h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.recipe-list li p {
+  color: #666;
+  font-size: 14px;
+}
