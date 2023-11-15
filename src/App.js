@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// import PlusIcon from './PlusIcon.jsx';
 import './App.css';
 
 import RecipeList from './components/RecipeList';
@@ -40,8 +41,11 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <h1>Recipe Book</h1>
-          <button className="add-button" onClick={handleAddButtonClick}>Add Recipe</button>
+          <h1 className='app-title'>Recipe Book</h1>
+          <button className="add-recipe" onClick={handleAddButtonClick}>
+            {/* <PlusIcon className="plus-icon" /> */}
+            New Recipe
+          </button>
         </header>
 
         {addingRecipe ? (
@@ -56,20 +60,72 @@ function App() {
                   <Link to="/">All Recipes</Link>
                 </li>
                 <li className='dropdown' onMouseEnter={toggleCategoryDropdown} onMouseLeave={toggleCategoryDropdown}>
-                  <span>Categories</span>
+                  <span>Type</span>
                   {showCategoryDropdown && (
                     <ul>
                       <li>
-                        <Link to="/categories/main">Main</Link>
+                        <Link to="/categories/main">Breakfast</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/main">Lunch</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Dinner</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Snack</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Appetizer (Starter)</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Main Course (Entrée)</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Side Dish</Link>
                       </li>
                       <li>
                         <Link to="/categories/dessert">Dessert</Link>
                       </li>
+                      <li>
+                        <Link to="/categories/dessert">Supper</Link>
+                      </li>
                     </ul>
                   )}
                 </li>
-                <li>
-                  <Link to="/favorites">Favorites</Link>
+                <li className='dropdown' onMouseEnter={toggleCategoryDropdown} onMouseLeave={toggleCategoryDropdown}>
+                  <span>Cuisine</span>
+                  {showCategoryDropdown && (
+                    <ul>
+                      <li>
+                        <Link to="/categories/main">Italian</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Indian</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Japanese</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Thai</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">French</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Turkish</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Finnish</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">Mexican</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories/dessert">American</Link>
+                      </li>
+                    </ul>
+                  )}
                 </li>
               </ul>
             </nav>

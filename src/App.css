@@ -11,13 +11,15 @@ header {
   color: white;
   padding: 15px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  height: 40px;
 }
 
-header h1{
-  margin: auto;
-  text-align: center;
+header h1 {
+  display : flex;
+  align-items: center;
+  justify-content : center;
 }
 
 .add-button {
@@ -104,24 +106,59 @@ nav ul li a {
 
 
 
+/* Recipe book title font */
+.app-title {
+    margin: auto;
+    text-align: center;
+    font-family: 'Lobster', sans-serif;
+  }
 
 
 
 
 
 
-
-.add-button {
+.add-recipe {
   padding: 10px;
   background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 5px;
+  margin: auto;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease-in-out;
+  position: absolute;
+  right: 15px;
 }
 
-.add-button:hover {
+.add-recipe:hover {
   background-color: #45a049; /* Change the background color on hover */
 }
+
+
+
+
+/* Plus icon */
+.add-recipe {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+}
+
+.add-recipe .plus-icon {
+  transition: transform 0.3s ease-in-out; /* Added transition for smooth scaling */
+}
+
+.add-recipe:hover .plus-icon {
+  transform: scale(1.1); /* Scale the plus icon slightly on hover */
+}
+
+/* Rest of your CSS remains unchanged */

@@ -32,8 +32,11 @@ const recipeSchema = new mongoose.Schema({
   title: String,
   ingredients: String,
   instructions: String,
-  isFavorite: Boolean,
-  category: String,
+  rating: Number,
+  preparationTime: String,
+  type: String,
+  cuisine: String,
+  servings: Number,
   imageUrl: String,
 });
 
@@ -61,14 +64,17 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
 
 app.post('/api/recipes', async (req, res) => {
   try {
-    const { title, ingredients, instructions, isFavorite, category, imageUrl } = req.body;
+    const { title, ingredients, instructions, rating, preparationTime, type, cuisine, servings, imageUrl } = req.body;
 
     const newRecipe = new Recipe({
       title,
       ingredients,
       instructions,
-      isFavorite,
-      category,
+      rating,
+      preparationTime,
+      type,
+      cuisine,
+      servings,
       imageUrl,
     });
 

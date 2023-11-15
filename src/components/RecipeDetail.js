@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
+import StarIcon from './StarIcon';
 import './RecipeDetail.css';
 
 const RecipeDetail = () => {
@@ -8,6 +9,22 @@ const RecipeDetail = () => {
   const navigate = useNavigate();
 
   const recipe = location.state;
+
+  const renderStars = (rating) => {
+    if (!rating || rating <= 0) {
+      return null; // Handle unrated recipes
+    }
+
+    const stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push(
+        <span key={i} className="star" role="img" aria-label="star">
+          ⭐
+        </span>
+      );
+    }
+    return stars;
+  };
 
   console.log('ID from URL:', id);
   console.log('Current Recipe:', recipe);
@@ -39,23 +56,33 @@ const RecipeDetail = () => {
 
   return (
     <div className="recipe-detail-container">
-      <h2 className="recipe-title">{recipe.title}</h2>
-      <img src={`http://localhost:3001/uploads/${recipe.imageUrl}`} alt={recipe.title} className="recipe-image" />
-      <div className="recipe-section">
-        <h3>Ingredients</h3>
-        <p className="recipe-content">{recipe.ingredients}</p>
-      </div>
-      <div className="recipe-section">
-        <h3>Instructions</h3>
-        <p className="recipe-content">{recipe.instructions}</p>
-      </div>
-      {/* Delete button */}
-      <button onClick={handleDelete} className="delete-button">
-        Delete Recipe
-      </button>
-      <Link to="/" className="back-link">
-        Back to Recipe List
-      </Link>
+        <div className='title-group'>
+            <h2 className="recipe-title">{recipe.title}</h2>
+            {recipe.rating && <div className="stars-container">{renderStars(recipe.rating)}</div>}
+        </div>
+      
+        <h3 className='type'>Type: {recipe.type}</h3>
+        <h3 className='cuisine'>Cuisine: {recipe.cuisine}</h3>
+        <h3 className='servings'>Servings: {recipe.servings}</h3>
+        <img src={`http://localhost:3001/uploads/${recipe.imageUrl}`} alt={recipe.title} className="recipe-image" />
+        <div className="recipe-section">
+            <h3>Ingredients</h3>
+            <p className="recipe-content">{recipe.ingredients}</p>
+        </div>
+        <div className="recipe-section">
+            <h3>Instructions</h3>
+            <p className="recipe-content">{recipe.instructions}</p>
+        </div>
+        <div className="recipe-section">
+            <p>Preparation Time: {recipe.preparationTime}</p>
+        </div>
+        {/* Delete button */}
+        <button onClick={handleDelete} className="delete-button">
+            Delete Recipe
+        </button>
+        <Link to="/" className="back-link">
+            Back to Recipe List
+        </Link>
     </div>
   );
 };
