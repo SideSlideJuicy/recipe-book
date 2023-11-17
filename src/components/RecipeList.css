@@ -60,20 +60,19 @@ a {
 }
 
 .favorite-indicator {
-  color: gold; /* Change the color of the star or use an icon/font for better customization */
-  font-size: 18px; /* Adjust the size of the star or icon */
-  margin-left: 5px; /* Add some spacing between the title and the indicator */
+  color: gold;
+  font-size: 18px;
+  margin-left: 5px;
 }
 
 
 /* Rating */
 .star-rating {
   display: inline-block;
-  font-size: 1.2rem; /* Adjust the size as needed */
-  color: #ffd700; /* Yellow color */
+  font-size: 1.2rem;
+  color: #ffd700;
 }
 
-/* Style the stars when hovered */
 .star-rating:hover {
-  color: #ffcc00; /* Lighter yellow color on hover */
+  color: #ffcc00;
 }

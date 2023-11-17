@@ -42,6 +42,7 @@ const recipeSchema = new mongoose.Schema({
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
+// Fetch all recipes
 app.get('/api/recipes', async (req, res) => {
   try {
     const recipes = await Recipe.find();
@@ -52,6 +53,46 @@ app.get('/api/recipes', async (req, res) => {
   }
 });
 
+// Fetch recipes based on type
+app.get('/api/recipes/type/:type', async (req, res) => {
+    const { type } = req.params;
+  
+    try {
+      const recipes = await Recipe.find({ type });
+      res.status(200).json(recipes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+  
+  // Fetch recipes based on cuisine
+  app.get('/api/recipes/cuisine/:cuisine', async (req, res) => {
+    const { cuisine } = req.params;
+  
+    try {
+      const recipes = await Recipe.find({ cuisine });
+      res.status(200).json(recipes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+  
+  // Fetch recipes based on rating
+  app.get('/api/recipes/rating/:rating', async (req, res) => {
+    const { rating } = req.params;
+  
+    try {
+      const recipes = await Recipe.find({ rating });
+      res.status(200).json(recipes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+
+// Image upload
 app.post('/api/upload', upload.single('image'), (req, res) => {
   try {
     const imageUrl = req.file ? req.file.filename : '';
@@ -62,6 +103,7 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
   }
 });
 
+// Add new recipe
 app.post('/api/recipes', async (req, res) => {
   try {
     const { title, ingredients, instructions, rating, preparationTime, type, cuisine, servings, imageUrl } = req.body;

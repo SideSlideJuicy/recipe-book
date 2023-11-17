@@ -68,10 +68,6 @@ select:focus {
   margin-right: 8px;
 }
 
-
-
-
-
 .help-container {
   position: absolute;
   display: none;
@@ -103,14 +99,6 @@ select:focus {
 .help-icon {
   margin-left: 5px;
 }
-
-
-
-
-
-
-
-
 
 /* Add and cancel buttons */
 .button-container {
@@ -152,9 +140,6 @@ select:focus {
   background-color: rgb(208, 208, 208);
   color: #333333;
 }
-
-
-
 
 /* Rating */
 .rating-slider {

@@ -32,16 +32,11 @@ header h1 {
   cursor: pointer;
 }
 
-
-
-
-
-
 /* Nav */
 nav {
   margin-top: 50px;
-  display: flex; /* Flexbox */
-  justify-content: center; /* Center the items horizontally */
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
@@ -52,7 +47,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin-right: 20px; /* Adjust the spacing between menu items */
+  margin-right: 20px;
   position: relative;
 }
 
@@ -69,7 +64,7 @@ nav ul .dropdown ul {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  min-width: 160px; /* Adjust the minimum width as needed */
+  min-width: 160px;
   z-index: 1;
 }
 
@@ -80,6 +75,8 @@ nav ul .dropdown:hover ul {
 nav ul .dropdown ul li {
   padding: 10px;
   text-align: left;
+  display: flex;
+  flex-direction: row;
 }
 
 nav ul .dropdown ul li a {
@@ -91,7 +88,7 @@ nav ul .dropdown ul li a {
 nav ul .dropdown ul li:hover {
   background-color: #f5f5f5;
   width: 100%;
-  box-sizing: border-box; /* Include padding and border in the width calculation */
+  box-sizing: border-box;
 }
 
 /* Additional styling for the main navigation items */
@@ -102,21 +99,12 @@ nav ul li a {
   padding: 10px;
 }
 
-
-
-
-
 /* Recipe book title font */
 .app-title {
     margin: auto;
     text-align: center;
     font-family: 'Lobster', sans-serif;
   }
-
-
-
-
-
 
 .add-recipe {
   padding: 10px;
@@ -133,32 +121,6 @@ nav ul li a {
 }
 
 .add-recipe:hover {
-  background-color: #45a049; /* Change the background color on hover */
+  background-color: #45a049;
 }
 
-
-
-
-/* Plus icon */
-.add-recipe {
-  padding: 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin: auto;
-  cursor: pointer;
-  font-weight: bold;
-  position: absolute;
-  right: 15px;
-}
-
-.add-recipe .plus-icon {
-  transition: transform 0.3s ease-in-out; /* Added transition for smooth scaling */
-}
-
-.add-recipe:hover .plus-icon {
-  transform: scale(1.1); /* Scale the plus icon slightly on hover */
-}
-
-/* Rest of your CSS remains unchanged */
